@@ -14,3 +14,24 @@ public class Main {
 		return 30 + num;
 	}
 }
+interface A{
+	public void m1();
+}
+interface B{
+	public void m1();
+}
+interface C extends A,B{
+	public void m1();
+}
+class Child implements C{
+
+	@Override
+	public void m1() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+//class A extends A{}
+//class B extends C{}
+//class C extends B{}

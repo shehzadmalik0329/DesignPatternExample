@@ -1,0 +1,181 @@
+Data Hiding
+Abstraction
+Encapsulation
+Tightly encapsulated class
+***************************
+IS-A relationship
+***************************
+HAS-A relationship
+Method signature
+Overloading**
+Overriding**
+Static control flow**
+Instance control flow**
+Contructor**
+Coupling
+Cohesion
+Type casting
+
+
+************************************************************************************************
+Data Hiding:
+outside entity can't access internal data directly without authentication or
+internal should not go out directly. This OOP concept is "Data Hiding"
+Example: 
+gmail user can access his account only after authentication
+customers can access his bank account details only
+Java: 
+declare data member(variable) as "private"
+recommended data modifier is private
+getter method can be used by outside entity to access
+Advantages:
+Security/Swiss bank
+
+************************************************************************************************
+Abstraction:
+Hiding internal implementations, just highlight the set of services which we are offering
+Example:
+ATM GUI screen(withdraw, check balance, change pin, mini statement)
+1-how ATM card is getting validated
+2-where is the server located
+3-where the database located? which query is getting generated?
+4-which server/database it is using
+5-which language it is using(frontend/backend)
+we don't know about these internal implementations
+Java:
+using Interface & abstract class we can implement Abstraction
+@AutoConfiguration
+@Autowired
+@LoadBalance
+@EnableScheduling
+Advantages:
+Security
+enhancement is easy, user does not get affected
+Easiness to use the service/feature
+maintainability is improved
+
+************************************************************************************************
+Encapsulation:
+Process of binding data members(state) and corresponding methods(behaviour) into a single unit is called as Encapsulation
+if any component follows data hiding and abstraction such type of componenet is said to be encapsulated component
+encapsulation = data hiding + abstraction
+Example:
+Every Java Pojo class is an example of encapsulation
+Advantages:
+Security, easy enhancement, easiness, maintainance
+
+Disadvantages:
+increases the length of code and Slows down the execution because of Security
+
+************************************************************************************************
+Tightly Encapsulated class:
+iff each and every data member is declared as private, then class is said to be "Tightly encapsulated class"
+we are not required to check any other thing
+if Parent class is not "tightly encapsulated" then no child class is "tightly encapsulated"
+
+************************************************************************************************
+IS-A relationship:
+is also known as Inheritance
+by using "extends" keyword we can implement "IS-A" relationship
+main advantage is code Reusability(Parent class methods are accessible in child class) and less redundency
+Example:1
+class P{
+public void m1(){}
+}
+class C extends P{
+public void m2(){}
+}
+class Test{
+p s v m(String[] args){
+1-
+P p = new P();
+p.m1();	-->valid
+p.m2();	-->invalid(Parent class reference cannot hold child class specific methods)
+
+C c = new C();
+c.m1();	-->valid
+c.m2();	-->valid(Child reference can hold all the methods of the Parent)
+
+P p1 = new C();	-->valid
+p1.m1();	-->valid
+p1.m2();	-->invalid
+(Parent reference can be used to hold Child Object, but using that reference we can't call Child specific methods
+but we can call methods present in parent class)
+
+C c1 = new P();	-->invalid
+(Child reference can't be used to hold Parent Object)
+}
+}
+
+Object class-->Throwable class-->RuntimeException
+Directly or indirectly Multiple Inheritance w.r.t classes is not supported by Java
+Why Java does not support "Multiple Inheritance"
+Example:2
+P1(m1)			P2(m1)
+C c = new C();
+c.m1();	-->there may be chance of ambiguity problem.
+
+interface A{
+	public void m1();
+}
+interface B{
+	public void m1();
+}
+interface C extends A,B{
+	public void m1();
+}
+class Child implements C{
+
+	@Override
+	public void m1() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
+
+multiple declaration but single implementation, in case of Interface.
+Example:3
+class A extends A{}
+class B extends C{}
+class C extends B{}
+Cyclic Inheritance is not applicable in Java
+
+************************************************************************************************
+HAS-A relationship
+Car HAS-A Engine reference
+Also known as --> Composition|Aggregation
+Reusability
+Composition --> Strong Association between objects
+(University & Departments)
+Aggregation --> Weak Association between objects
+(Department --> Teacher)
+
+When complete functionality is require then IS-A
+When partial functionality is require then HAS-A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************************************************************************************
+
+
